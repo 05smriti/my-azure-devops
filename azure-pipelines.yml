@@ -1,0 +1,26 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.9'
+  displayName: 'Use Python 3.9'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    python -m pytest --junitxml=junit/test-results.xml
+  displayName: 'Run tests'
+  continueOnError: true
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '**/test-results.xml'
+  displayName: 'Publish test results'
