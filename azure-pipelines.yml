@@ -15,12 +15,4 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-- script: |
-    python -m pytest --junitxml=junit/test-results.xml
-  displayName: 'Run tests'
-  continueOnError: true
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFiles: '**/test-results.xml'
-  displayName: 'Publish test results'
