@@ -15,10 +15,16 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-- task: CopyPublishBuildArtifacts@1
-  inputs:
-    Contents: 'artifact'
-    ArtifactName: 'artifact'
+- script: |
+    mkdir $(Build.ArtifactStagingDirectory)/blank-artifact
+    echo "This is a test artifact" > $(Build.ArtifactStagingDirectory)/blank-artifact/readme.txt
+  displayName: 'Create blank artifact content'
 
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish Pipeline Artifact'
+  inputs:
+    targetPath: '$(System.DefaultWorkingDirectory)/blank-artifact'
+    artifact: 'drop'
+    publishLocation: 'pipeline'
 
 
