@@ -16,7 +16,7 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    mkdir $(Build.ArtifactStagingDirectory)/blank-artifact
+    mkdir $(System.DefaultWorkingDirectory)/blank-artifact
     echo "This is a test artifact" > $(Build.ArtifactStagingDirectory)/blank-artifact/readme.txt
   displayName: 'Create blank artifact content'
 
