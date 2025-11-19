@@ -17,7 +17,7 @@ steps:
 
 - script: |
     mkdir $(System.DefaultWorkingDirectory)/blank-artifact
-    echo "This is a test artifact" > $(Build.ArtifactStagingDirectory)/blank-artifact/readme.txt
+#    echo "This is a test artifact" > $(Build.ArtifactStagingDirectory)/blank-artifact/readme.txt
   displayName: 'Create blank artifact content'
 
 - task: PublishPipelineArtifact@1
