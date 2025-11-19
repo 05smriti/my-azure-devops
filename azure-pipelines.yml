@@ -15,4 +15,10 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
+- task: CopyPublishBuildArtifacts@1
+  inputs:
+    Contents: 'artifact'
+    ArtifactName: 'artifact'
+    ArtifactType: 'FilePath'
+
 
