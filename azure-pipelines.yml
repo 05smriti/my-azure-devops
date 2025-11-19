@@ -19,6 +19,6 @@ steps:
   inputs:
     Contents: 'artifact'
     ArtifactName: 'artifact'
-    ArtifactType: 'FilePath'
+
 
 
